@@ -40,7 +40,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: TS Results
-          path: ThunderScan-Report.html
+          path: |
+            ThunderScan-Report.html
+            ThunderScan-Report.csv
+            ThunderScan-Report.json
+            ThunderScan-Report.sarif
           retention-days: 1
   codeql:
     name: CodeQL
