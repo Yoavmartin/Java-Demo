@@ -10,7 +10,7 @@
 # TODO - Add ERROR handling
 
 WS_PROJECTTOKEN=$(jq -r '.projects | .[] | .projectToken' ./whitesource/scanProjectDetails.json)
-WS_URL=$(echo $WS_WSS_URL | awk -F "agent" '{print $1}')
+WS_URL=$(echo $WS_WSS_URL | awk -F "/agent" '{print $1}')
 echo "WS_PRODUCTNAME=" $WS_PRODUCTNAME
 echo "WS_PROJECTNAME=" $WS_PROJECTNAME
 echo "WS_PROJECTTOKEN=" $WS_PROJECTTOKEN
