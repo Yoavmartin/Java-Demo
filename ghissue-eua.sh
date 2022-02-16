@@ -23,7 +23,7 @@ echo "saving alerts.json"
 ### getProjectSecurityAlertsbyVulnerabilityReport - finds Red Shields
 curl --request POST $WS_URL'/api/v1.3' -H 'Content-Type: application/json' \
 -d '{ 'requestType' : 'getProjectSecurityAlertsByVulnerabilityReport', 'userKey' : '$WS_USERKEY', 'projectToken': '$WS_PROJECTTOKEN', 'format' : 'json'}' \
-jq -r '.alerts[] | select(.euaShield=="RED") | .vulnerabilityId' >> redshields.txt
+| jq -r '.alerts[] | select(.euaShield=="RED") | .vulnerabilityId' >> redshields.txt
 echo 'saving redshields.txt'
 cat redshields.txt && echo "cat of redshields"
 
