@@ -24,12 +24,7 @@ jobs:
       - name: Run WS-SAST
         run: |
           ./wscli --dir ./ --name=${{github.event.repository.name}}-${{github.ref_name}}-${{github.sha}} \
-          --baseline=true --report=true --formats=sarif --filename WS-SAST-Report
-      # Upload WS-SAST Results to Github Security
-      - name: Github Security Results Upload
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: WS-SAST-Report.sarif
+          --template=GH_Summary_${{github.event.repository.name}} --baseline=true
   codeql:
     name: CodeQL
     runs-on: ubuntu-latest
