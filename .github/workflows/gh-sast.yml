@@ -22,9 +22,7 @@ jobs:
         run: curl -LJO https://downloads-demo.whitesourcesoftware.com/sast-cli/linux/wscli && chmod +x wscli
       # Run CLI
       - name: Run WS-SAST
-        run: |
-          ./wscli --dir ./ --name=${{github.event.repository.name}}-${{github.ref_name}}-${{github.sha}} \
-          --template=GH_Summary_${{github.event.repository.name}} --baseline=true
+        run: ./wscli --dir ./ --name=${{github.event.repository.name}}-${{github.ref_name}}-${{github.sha}} --baseline=true
   codeql:
     name: CodeQL
     runs-on: ubuntu-latest
